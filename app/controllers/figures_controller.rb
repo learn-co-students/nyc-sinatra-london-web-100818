@@ -7,8 +7,9 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
+    binding.pry
 
-  redirect "/figures/#{figure.id}"
+    redirect "/figures/#{figure.id}"
   end
 
 end

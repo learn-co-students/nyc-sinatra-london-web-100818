@@ -19,13 +19,13 @@
   <% @titles.each do |title| %>
 
     <div>
-      <input id="title - <%= title.name %>"
+      <input id="title_<%= title.id %>"
         type="checkbox"
         name="figure[title_ids][]"
         value="<%= title.id %>"
       />
 
-      <label for="title - <%= title.name %>"><%= title.name %></label>
+      <label for="title_<%= title.id %>"><%= title.name %></label>
     </div>
 
   <% end %>
@@ -47,13 +47,13 @@
   <% @landmarks.each do |landmark| %>
 
     <div>
-      <input id="landmark - <%= landmark.name %>"
+      <input id="landmark_<%= landmark.id %>"
         type="checkbox"
         name="figure[landmark_ids][]"
         value="<%= landmark.id %>"
       />
 
-      <label for="landmark - <%= landmark.name %>"><%= landmark.name %></label>
+      <label for="landmark_<%= landmark.id %>"><%= landmark.name %></label>
     </div>
 
   <% end %>
@@ -80,7 +80,7 @@
 
   <br>
   <br>
-  
-    <input type="submit" value="Create Figure" />
+
+    <input type="submit" value="Create New Figure" />
 
 </form>
