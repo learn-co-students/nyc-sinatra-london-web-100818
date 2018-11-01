@@ -1,0 +1,13 @@
+<h1>A List of Figures</h1>
+
+<p>This page has a list of all figures our users have created.</p>
+
+<ul>
+<% @figures.each do |figure| %>
+  <li>
+    <%= figure.name %> ||
+    <a href="/figures/<%= figure.id %>">view</a> | 
+    <a href="/figures/<%= figure.id %>/edit">edit</a>
+  </li>
+<% end %>
+</ul>

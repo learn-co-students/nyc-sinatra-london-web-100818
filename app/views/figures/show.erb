@@ -1,0 +1,27 @@
+<h1><%= @figure.name %></h1>
+
+<p>This page is dedicated to '<%= @figure.name %>'!</p>
+
+<h3>Titles</h3>
+
+<ul>
+<% @figure.titles.each do |title| %>
+  <li>
+    <%= title.name %> ||
+    <a href="/titles/<%= title.id %>">view</a> | 
+    <a href="/titles/<%= title.id %>">edit</a>
+  </li>
+<% end %>
+</ul>
+
+<h3>Landmarks</h3>
+
+<ul>
+<% @figure.landmarks.each do |landmark| %>
+  <li>
+    <%= landmark.name %> ||
+    <a href="/landmarks/<%= landmark.id %>">view</a> | 
+    <a href="/landmarks/<%= landmark.id %>">edit</a>
+  </li>
+<% end %>
+</ul>

@@ -1,0 +1,86 @@
+<h1>Create a New Figure</h1>
+
+<p>This page allows you to create a new figure with associated landmarks and titles</p>
+
+<form method="post" action="/figures">
+
+  <label for="figure_name"><h3>Name:</h3></label>
+
+  <input id="figure_name"
+    type="text"
+    name="figure[name]"
+    placeholder="eg. Abraham Lincoln"
+  />
+
+  <br>
+
+  <h3>Titles:</h3>
+
+  <% @titles.each do |title| %>
+
+    <div>
+      <input id="title_<%= title.id %>"
+        type="checkbox"
+        name="figure[title_ids][]"
+        value="<%= title.id %>"
+      />
+
+      <label for="title_<%= title.id %>"><%= title.name %></label>
+    </div>
+
+  <% end %>
+
+  <h3>Or, Create a New Title:</h3>
+
+  <label for="new_title">Name: </label>
+
+  <input id="new_title"
+    type="text"
+    name="title[name]"
+    placeholder="eg. President"
+  />
+
+  <br>
+
+  <h3>Choose a Landmark:</h3>
+
+  <% @landmarks.each do |landmark| %>
+
+    <div>
+      <input id="landmark_<%= landmark.id %>"
+        type="checkbox"
+        name="figure[landmark_ids][]"
+        value="<%= landmark.id %>"
+      />
+
+      <label for="landmark_<%= landmark.id %>"><%= landmark.name %></label>
+    </div>
+
+  <% end %>
+
+  <br>
+
+  <h3>Or, Create a New Landmark: </h3>
+
+  <label for="new_landmark">Name: </label>
+
+  <input id="new_landmark"
+    type="text"
+    name="landmark[name]"
+    placeholder="eg. Lincoln Memorial"
+  />
+
+  <label for="landmark_year_completed">  Year Completed: </label>
+
+  <input id="landmark_year_completed"
+    type="text"
+    name="landmark[year_completed]"
+    placeholder="eg. 1922"
+  />
+
+  <br>
+  <br>
+
+  <input type="submit" value="Create New Figure" />
+
+</form>

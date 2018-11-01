@@ -1,0 +1,113 @@
+<h1>Edit <%= @figure.name %></h1>
+
+<p>This page allows you to edit <%= @figure.name %></p>
+
+<form method="post" action="/figures/<%= @figure.id %>">
+<input id="hidden" type="hidden" name="_method" value="patch">
+
+  <label for="figure_name"><h3>Name:</h3></label>
+
+  <input id="figure_name"
+    type="text"
+    name="figure[name]"
+    value="<%= @figure.name %>"
+  />
+
+  <br>
+
+  <h3>Titles:</h3>
+
+  <% @titles.each do |title| %>
+
+    <% if @figure.title_ids.include?(title.id) %>
+      <div>
+        <input id="title_<%= title.id %>"
+          type="checkbox"
+          name="figure[title_ids][]"
+          value="<%= title.id %>"
+          checked
+        />
+
+        <label for="title_<%= title.id %>"><%= title.name %></label>
+      </div>
+    <% else %>
+      <div>
+        <input id="title_<%= title.id %>"
+          type="checkbox"
+          name="figure[title_ids][]"
+          value="<%= title.id %>"
+        />
+
+        <label for="title_<%= title.id %>"><%= title.name %></label>
+      </div>
+    <% end %>
+
+  <% end %>
+
+  <h3>Or, Create a New Title:</h3>
+
+  <label for="new_title">Name: </label>
+
+  <input id="new_title"
+    type="text"
+    name="title[name]"
+    placeholder="eg. President"
+  />
+
+  <br>
+
+  <h3>Choose a Landmark:</h3>
+
+  <% @landmarks.each do |landmark| %>
+
+    <% if @figure.landmark_ids.include?(landmark.id) %>
+      <div>
+        <input id="landmark_<%= landmark.id %>"
+          type="checkbox"
+          name="figure[landmark_ids][]"
+          value="<%= landmark.id %>"
+          checked
+        />
+
+        <label for="landmark_<%= landmark.id %>"><%= landmark.name %></label>
+      </div>
+    <% else %>
+      <div>
+        <input id="landmark_<%= landmark.id %>"
+          type="checkbox"
+          name="figure[landmark_ids][]"
+          value="<%= landmark.id %>"
+        />
+
+        <label for="landmark_<%= landmark.id %>"><%= landmark.name %></label>
+      </div>
+    <% end %>
+
+  <% end %>
+
+  <br>
+
+  <h3>Or, Create a New Landmark: </h3>
+
+  <label for="new_landmark">Name: </label>
+
+  <input id="new_landmark"
+    type="text"
+    name="landmark[name]"
+    placeholder="eg. Lincoln Memorial"
+  />
+
+  <label for="landmark_year_completed">  Year Completed: </label>
+
+  <input id="landmark_year_completed"
+    type="text"
+    name="landmark[year_completed]"
+    placeholder="eg. 1922"
+  />
+
+  <br>
+  <br>
+
+  <input type="submit" value="Edit Figure" />
+
+</form>

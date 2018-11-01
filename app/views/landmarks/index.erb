@@ -1,6 +1,17 @@
-<h2>All Historical Landmarks</h2>
+<h1>All Historical Landmarks</h1>
 
-<!-- add content here -->
+<p>This page has a list of all landmarks our users have created.</p>
 
-<a class="button" href="/figures">Figures</a>
+<ul>
+<% @landmarks.each do |landmark| %>
+  <li>
+    <%= landmark.name %> built 
+    <%= landmark.year_completed %> ||
+    <a href="/landmarks/<%= landmark.id %>">view</a> | 
+    <a href="/landmarks/<%= landmark.id %>/edit">edit</a>
+  </li>
+<% end %>
+</ul>
+
+<a class="button" href="/landmarks">Landmarks</a>
 <a class="button" href="/">Home</a>

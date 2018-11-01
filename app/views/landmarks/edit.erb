@@ -1,6 +1,69 @@
-<h2>Edit Historical Landmark</h2>
+<h1>Edit <%= @landmark.name %></h1>
 
-<!-- add content here -->
+<p>This page allows you to edit a landmark with it's associated figures</p>
 
-<a class="button" href="/figures">Landmarks</a>
+<form method="post" action="/landmarks/<%= @landmark.id %>">
+<input id="hidden" type="hidden" name="_method" value="patch">
+  <label for="name">Name: </label>
+
+  <input id="name"
+    type="text"
+    name="landmark[name]"
+    value="<%= @landmark.name %>"
+  />
+
+  <label for="year_completed">  Year Completed: </label>
+
+  <input id="year_completed"
+    type="text"
+    name="landmark[year_completed]"
+    placeholder="<%= @landmark.year_completed %>"
+  />
+
+  <br>
+
+  <h3>Choose a figure:</h3>
+
+  <% @figures.each do |figure| %>
+
+    <div>
+      <input id="figure<%= figure.id %>"
+        type="checkbox"
+        name="landmark[figure_id]"
+        value="<%= figure.id %>"
+        <% if figure.landmark_ids.include?(@landmark.id) %>
+        checked
+        <% end %>
+      />
+
+      <label for="figure_<%= figure.id %>"><%= figure.name %></label>
+    </div>
+
+  <% end %>
+
+  <br>
+
+  <h3>Or, Create a New figure: </h3>
+
+  <label for="figure_name"><h3>Name:</h3></label>
+
+  <input id="figure_name"
+    type="text"
+    name="figure[name]"
+    placeholder="eg. Abraham Lincoln"
+  />
+
+  <br>
+  <br>
+
+  <input type="submit" value="Edit Landmark" />
+
+</form>
+
+<a class="button" href="/landmarks">Landmarks</a>
+<a class="button" href="/">Home</a>
+
+
+
+<a class="button" href="/ls">Landmarks</a>
 <a class="button" href="/">Home</a>
