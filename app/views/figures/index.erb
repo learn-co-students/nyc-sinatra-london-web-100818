@@ -3,11 +3,11 @@
 <p>This page has a list of all figures our users have created.</p>
 
 <ul>
-<% @figures.each do |f| %>
+<% @figures.each do |figure| %>
   <li>
-    <%= f.name %> ||
-    <a href="/figures/<%= f.id %>">view</a> | 
-    <a href="/figures/<%= f.id %>">edit</a>
+    <%= figure.name %> ||
+    <a href="/figures/<%= figure.id %>">view</a> | 
+    <a href="/figures/<%= figure.id %>">edit</a>
   </li>
 <% end %>
 </ul>
