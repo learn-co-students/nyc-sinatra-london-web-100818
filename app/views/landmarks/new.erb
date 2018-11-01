@@ -1,6 +1,61 @@
-<h2>Create New Landmark</h2>
+<h1>Create a New Landmark</h1>
 
-<!-- add content here -->
+<p>This page allows you to create a new landmark with associated figures and titles</p>
 
-<a class="button" href="/figures">Landmarks</a>
+<form method="post" action="/landmarks">
+
+  <label for="new_landmark">Name: </label>
+
+  <input id="new_landmark"
+    type="text"
+    name="landmark[name]"
+    placeholder="eg. Lincoln Memorial"
+  />
+
+  <label for="landmark_year_completed">  Year Completed: </label>
+
+  <input id="landmark_year_completed"
+    type="text"
+    name="landmark[year_completed]"
+    placeholder="eg. 1922"
+  />
+
+  <br>
+
+  <h3>Choose a figure:</h3>
+
+  <% @figures.each do |figure| %>
+
+    <div>
+      <input id="landmark_<%= figure.id %>"
+        type="checkbox"
+        name="landmark[landmark_ids][]"
+        value="<%= figure.id %>"
+      />
+
+      <label for="landmark_<%= figure.id %>"><%= figure.name %></label>
+    </div>
+
+  <% end %>
+
+  <br>
+
+  <h3>Or, Create a New figure: </h3>
+
+  <label for="figure_name"><h3>Name:</h3></label>
+
+  <input id="figure_name"
+    type="text"
+    name="figure[name]"
+    placeholder="eg. Abraham Lincoln"
+  />
+
+  <br>
+  <br>
+
+  <input type="submit" value="Create New landmark" />
+
+</form>
+
+<a class="button" href="/landmarks">Landmarks</a>
 <a class="button" href="/">Home</a>
