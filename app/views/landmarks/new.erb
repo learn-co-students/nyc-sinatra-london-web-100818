@@ -1,6 +1,6 @@
 <h1>Create a New Landmark</h1>
 
-<p>This page allows you to create a new landmark with associated figures and titles</p>
+<p>This page allows you to create a new landmark with it's associated figures</p>
 
 <form method="post" action="/landmarks">
 
@@ -27,13 +27,13 @@
   <% @figures.each do |figure| %>
 
     <div>
-      <input id="landmark_<%= figure.id %>"
+      <input id="figure_<%= figure.id %>"
         type="checkbox"
         name="landmark[landmark_ids][]"
         value="<%= figure.id %>"
       />
 
-      <label for="landmark_<%= figure.id %>"><%= figure.name %></label>
+      <label for="figure_<%= figure.id %>"><%= figure.name %></label>
     </div>
 
   <% end %>
