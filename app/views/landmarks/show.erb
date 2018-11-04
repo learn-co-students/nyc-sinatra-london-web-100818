@@ -1,13 +1,12 @@
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Year Completed</th>
-  </tr>
-  <tr>
-    <td><%= @landmark.name %></td>
-    <td><%= @landmark.year_completed %></td>
-  </tr>
-<table>
+
+    <h1><%= @landmark.name %></h1>
+    <hr>
+    <br>
+    <h2>Year Completed</h2>
+    <h3><%= @landmark.year_completed %></h3>
+    
+    <h2>Figure</h2>
+    <h3><%= Figure.find(@landmark.figure_id).name %></h3>
 
 <a class="button" href="/landmarks/<%= @landmark.id %>/edit">Edit Landmark</a>
 <a class="button" href="/landmarks">Landmarks</a>
